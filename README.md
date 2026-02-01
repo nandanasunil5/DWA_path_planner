@@ -22,4 +22,4 @@ This package implements a **Dynamic Window Approach (DWA)** Local Planner from s
 ### 1. Clone Repository
 ```bash
 cd ~/ros2_ws/src
-git clone https://github.com/nandanasunil5/custom_dwa_planner.git
+git clone https://github.com/nandanasunil5/DWA_path_planner.git
