@@ -23,3 +23,59 @@ This package implements a **Dynamic Window Approach (DWA)** Local Planner from s
 ```bash
 cd ~/ros2_ws/src
 git clone https://github.com/nandanasunil5/DWA_path_planner.git
+```
+
+### 2. Install Dependencies
+```bash
+cd ~/ros2_ws
+rosdep install -y --from-paths src --ignore-src --rosdistro humble
+```
+
+### 3. Build the Package
+```bash
+colcon build --packages-select custom_dwa_planner
+source install/setup.bash
+```
+
+
+## How to Run
+
+### 1. Launch the Simulation
+Open a new terminal to start the Gazebo world:
+```bash
+export TURTLEBOT3_MODEL=burger
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+```
+
+### 2. Start Visualization
+Open a second terminal for RViz
+```bash
+ros2 launch turtlebot3_bringup rviz2.launch.py
+```
+
+### 3. Run the Planner
+Open a third terminal and start the node
+```bash
+colcon build --packages-select custom_dwa_planner
+source install/setup.bash
+```
+
+### 3. Operation
+
+* Click the 2D Goal Pose tool in the **RViz toolbar**.
+
+* Click anywhere on the **map** to set a target.
+
+* Watch the *robot plan and execute* the path!
+
+## Algorithm & Tuning
+
+Tuned Parameters To ensure the robot remains upright and agile, the following constraints were determined through testing:
+
+* **Max Linear Velocity:** 0.15 m/s (Cap speed to prevent physics instability)
+
+* **Max Angular Velocity:** 0.5 rad/s (Reduced from 1.0 to stop "whiplash" turns)
+
+* **Robot Radius:** 0.22 m (Fits standard TurtleBot3 footprint + safety margin)
+
+* O**bstacle Weight:** 4.0 (High priority on safety to prevent clipping pillars)
