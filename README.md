@@ -4,7 +4,6 @@
 ## Overview
 This package implements a **Dynamic Window Approach (DWA)** Local Planner from scratch for the TurtleBot3 in ROS 2 Humble. It calculates optimal velocity commands (`cmd_vel`) to navigate the robot to a goal while avoiding obstacles.
 
-![Uploading Screenshot from 2026-02-01 14-30-36.png…]()
 
 **Key Features:**
 * **Dynamic Sampling:** Samples linear and angular velocities within safe dynamic limits.
